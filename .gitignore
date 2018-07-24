@@ -30,7 +30,7 @@ node_modules
 # Build Data
 dist/*
 es/*
-lib/*
+#lib/*
 
 # Optional REPL history
 .node_repl_history
