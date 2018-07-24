@@ -163,13 +163,16 @@ class ReactToPrint extends React.Component {
 
             if (node.sheet) {
               for (let i = 0; i < node.sheet.cssRules.length; i++) {
-                styleCSS += node.sheet.cssRules[i].cssText + "\r\n";
+                let tempText = ''
+                // CSSKeyframesRule why?
+                try {
+                  tempText = node.sheet.cssRules[i].cssText
+                } catch (e) {
+                }
+                styleCSS += tempText + "\r\n";
               }
-
             }
-
           } else {
-
             let newHeadEl = domDoc.createElement(node.tagName);
 
             let attributes = [...node.attributes];
