@@ -75,6 +75,7 @@ class ReactToPrint extends React.Component {
 
     let printWindow = document.createElement('iframe');
     printWindow.style.position = 'absolute';
+    printWindow.className += ' previewFrame'
     if(showPreview){
       printWindow.style.top = '0px';
       printWindow.style.left = '0px';

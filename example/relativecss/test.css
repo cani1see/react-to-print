@@ -43,3 +43,6 @@ table, th, td {
         width: 100%;
     }
 }
+.previewFrame{
+    z-index: 999;
+}
