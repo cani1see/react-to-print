@@ -1,3 +1,45 @@
 .relativeCSS {
  border: solid 1px #FF0000;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.printButton{
+    height: 100px;
+    width: 200px;
+    background: hotpink;
+    position: fixed;
+    top:300px;
+    right: 0;
+}
+.cancelButton{
+    height: 100px;
+    width: 200px;
+    background: aqua;
+    position: fixed;
+    top:400px;
+    right: 0;
+}
+@media print {
+    table, th, td {
+        border: none;
+    }
+}
+.testth {
+    color: #FF0000;
+}
+
+@media print {
+    .PageBreak {
+        page-break-before: always;
+    }
+}
+@media screen {
+    .PageBreak {
+        border-bottom: 1px dashed black;
+        border-top: 1px dashed black;
+        height: 10px;
+        width: 100%;
+    }
+}

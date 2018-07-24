@@ -8,7 +8,7 @@
 [![dependencies Status](https://david-dm.org/gregnb/react-to-print/status.svg)](https://david-dm.org/gregnb/react-to-print)
 [![npm version](https://badge.fury.io/js/react-to-print.svg)](https://badge.fury.io/js/react-to-print)
 
-So you've created a React component but would love to give end users the ability to print out the contents of that component. This package aims to solve that by popping up a new print window with CSS styles copied over as well.  
+So you've created a React component but would love to give end users the ability to print out the contents of that component. This package aims to solve that by popping up a new print window with CSS styles copied over as well.
 
 ## Install
 
@@ -88,3 +88,7 @@ The component accepts the following props:
 |**`copyStyles`**|boolean|Copies all &lt;style> and &lt;link type="stylesheet" /> from <head> inside the parent window into the print window. (default: true)
 |**`onBeforePrint`**|function|A callback function that triggers before print
 |**`bodyClass`**|string|Optional class to pass to the print window body
+|**`printWindowOptions`**|object|Options to pass to the third argument of `window.open()`. Removes and overrides default properties.
+|**`showPreview`**|boolean| whether show a preview
+|**`printButton`**|element| element to trigger print in preview
+|**`cancelButton`**|element| element to trigger cancel in preview
