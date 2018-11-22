@@ -17,6 +17,8 @@ class ReactToPrint extends React.Component {
     onBeforePrint: PropTypes.func,
     /** Optional class to pass to the print window body */
     bodyClass: PropTypes.string,
+    /**取消按钮回调*/
+    onCancelButtonClicked: PropTypes.func,
     printButton: PropTypes.element,
     cancelButton: PropTypes.element,
   };
@@ -28,6 +30,7 @@ class ReactToPrint extends React.Component {
   };
 
   triggerPrint(target) {
+    const {onAfterPrint} = this.props
     if (this.props.onBeforePrint) {
       this.props.onBeforePrint();
     }
@@ -37,11 +40,13 @@ class ReactToPrint extends React.Component {
         target.contentWindow.focus();
         target.contentWindow.print();
         this.removeWindow(target);
+        onAfterPrint&&onAfterPrint()
       }, 500);
     }else {
       target.contentWindow.focus();
       target.contentWindow.print();
       this.removeWindow(target);
+      onAfterPrint&&onAfterPrint()
     }
   }
 
@@ -68,6 +73,7 @@ class ReactToPrint extends React.Component {
       copyStyles,
       onAfterPrint,
       showPreview,
+      onCancelButtonClicked,
       printButton,
       cancelButton
     } = this.props;
@@ -146,6 +152,7 @@ class ReactToPrint extends React.Component {
         cancelNode.addEventListener("click", () => {
           printWindow.style.display = 'none'
           this.removeWindow(printWindow);
+          onCancelButtonClicked && onCancelButtonClicked()
         })
         ReactDOM.render(cancelEle, cancelNode)
         cancelNode.className += ' cancelButtonInnerClassName'
